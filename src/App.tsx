@@ -134,7 +134,7 @@ export default function App() {
 
         {/* 3. Physiotherapy & Rehabilitation */}
         <PhysiotherapySection
-          onOpenBookingForPhysio={() => handleOpenBooking('physio-rehab', 'dr-mansouri')}
+          onOpenBookingForPhysio={() => handleOpenBooking('quran-therapy', 'sheikh-qahtani')}
           onOpenInquiry={() => handleOpenInquiry()}
         />
 

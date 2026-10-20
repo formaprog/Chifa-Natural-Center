@@ -344,48 +344,43 @@ END:VCALENDAR`;
                   >
                     الخطوة 1: اختر نوع الجلسة العلاجية المطلوبة
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {SERVICES_DATA.map((srv, index) => {
+                  <div className="max-w-xl mx-auto">
+                    {SERVICES_DATA.map((srv) => {
                       const isSelected = selectedService.id === srv.id;
                       return (
                         <div
                           key={srv.id}
                           onClick={() => setSelectedService(srv)}
-                          style={{
-                            borderColor: index === 0 ? '#1d941d' : index === 1 ? '#1e981e' : index === 2 ? '#1e811e' : '#1e8423'
-                          }}
-                          className={`p-5 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between ${
+                          className={`p-6 sm:p-7 rounded-3xl border-2 transition-all cursor-pointer flex flex-col justify-between ${
                             isSelected
-                              ? 'border-emerald-600 bg-emerald-50/70 shadow-md'
+                              ? 'border-emerald-600 bg-emerald-50/80 shadow-lg ring-2 ring-emerald-500/20'
                               : 'border-stone-200 bg-stone-50 hover:bg-stone-100'
                           }`}
                         >
                           <div>
-                            <div className="flex items-center justify-between mb-2">
-                              <span className="text-xs font-bold bg-white text-stone-800 px-2.5 py-0.5 rounded-md border border-stone-200">
-                                {srv.durationMinutes} دقيقة
-                              </span>
-                              <span className="text-sm font-black text-emerald-800">
-                                {srv.price} {srv.currency}
-                              </span>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-3 border border-emerald-300">
+                              <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
+                              <span>{srv.categoryLabel}</span>
                             </div>
+
                             <h5 
-                              className="font-black text-stone-900 text-base mb-1 font-tajawal"
-                              style={
-                                index === 0 ? { color: '#177217' } :
-                                index === 1 ? { color: '#22700f' } :
-                                index === 2 ? { color: '#205f29', borderColor: '#387627' } :
-                                index === 3 ? { backgroundColor: '#ffffff', color: '#1c6a2c' } : undefined
-                              }
+                              className="font-black text-emerald-950 text-xl sm:text-2xl mb-2 font-tajawal"
                             >
                               {srv.title}
                             </h5>
-                            <p className="text-xs text-stone-600 leading-relaxed mb-3">
+                            
+                            <p className="text-sm text-stone-700 leading-relaxed mb-4">
                               {srv.subtitle}
                             </p>
+
+                            <div className="p-4 rounded-2xl bg-white border border-emerald-200/80 text-xs sm:text-sm text-stone-600 leading-relaxed mb-3">
+                              {srv.description}
+                            </div>
                           </div>
-                          <div className="pt-2 border-t border-stone-200 text-xs font-bold text-emerald-700">
-                            {isSelected ? '✓ تم التحديد' : 'انقر للاختيار'}
+                          
+                          <div className="pt-3 border-t border-emerald-200/80 flex items-center justify-between text-xs sm:text-sm font-bold text-emerald-700">
+                            <span>{isSelected ? '✓ تم تحديد الجلسة' : 'انقر للاختيار'}</span>
+                            <span className="text-stone-500 font-normal">مع فضيلة الشيخ عبد العلي</span>
                           </div>
                         </div>
                       );
@@ -397,43 +392,60 @@ END:VCALENDAR`;
               {/* STEP 2: Select Specialist */}
               {step === 2 && (
                 <div className="space-y-4">
-                  <h4 className="text-base font-black text-stone-900 font-tajawal">
-                    الخطوة 2: اختر الأخصائي أو المعالج المشرف
+                  <h4 className="text-base font-black text-stone-900 font-tajawal text-center" style={{ color: '#196b19', fontSize: '21px' }}>
+                    الخطوة 2: المعالج والمتخصص المشرف
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="max-w-xl mx-auto">
                     {THERAPISTS_DATA.map((th) => {
                       const isSelected = selectedTherapist.id === th.id;
                       return (
                         <div
                           key={th.id}
                           onClick={() => setSelectedTherapist(th)}
-                          className={`p-5 rounded-2xl border-2 transition-all cursor-pointer ${
+                          className={`p-6 sm:p-7 rounded-3xl border-2 transition-all cursor-pointer ${
                             isSelected
-                              ? 'border-emerald-600 bg-emerald-50/70 shadow-md'
+                              ? 'border-emerald-600 bg-emerald-50/80 shadow-lg ring-2 ring-emerald-500/20'
                               : 'border-stone-200 bg-stone-50 hover:bg-stone-100'
                           }`}
                         >
-                          <div className="flex items-start gap-3 mb-3">
-                            <span className="text-3xl p-2 rounded-2xl bg-white border border-stone-200">
+                          <div className="flex items-start gap-4 mb-4">
+                            <span className="text-4xl sm:text-5xl p-3 rounded-2xl bg-white border border-stone-200 shadow-sm">
                               {th.avatar}
                             </span>
                             <div>
-                              <h5 className="font-black text-stone-900 text-base font-tajawal">
+                              <h5 className="font-black text-stone-900 text-lg sm:text-xl font-tajawal">
                                 {th.name}
                               </h5>
-                              <p className="text-xs text-emerald-800 font-bold">
+                              <p className="text-xs sm:text-sm text-emerald-800 font-bold mb-1">
                                 {th.title}
                               </p>
-                              <span className="text-[11px] text-stone-500">
+                              <span className="text-xs text-stone-500 font-medium">
                                 خبرة {th.experienceYears} عاماً • تقييم ★ {th.rating}
                               </span>
                             </div>
                           </div>
-                          <p className="text-xs text-stone-600 leading-relaxed mb-2">
+
+                          <p className="text-xs sm:text-sm text-stone-700 leading-relaxed mb-4">
                             {th.specialty}
                           </p>
-                          <div className="text-[11px] text-stone-500">
+
+                          <div className="space-y-2 mb-4 bg-white/80 p-3.5 rounded-2xl border border-stone-200 text-xs text-stone-600">
+                            <strong className="text-emerald-800 block">المؤهلات والاعتمادات:</strong>
+                            {th.qualifications.map((q, idx) => (
+                              <div key={idx} className="flex items-center gap-1.5">
+                                <span className="text-emerald-600">✓</span>
+                                <span>{q}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="text-xs text-emerald-800 font-bold bg-emerald-100/70 p-2.5 rounded-xl border border-emerald-300">
                             أيام التواجد: {th.availableDays.join('، ')}
+                          </div>
+
+                          <div className="mt-4 pt-3 border-t border-emerald-200/80 flex items-center justify-between text-xs sm:text-sm font-bold text-emerald-700">
+                            <span>{isSelected ? '✓ تم تحديد المعالج' : 'انقر للاختيار'}</span>
+                            <span className="text-stone-500 font-normal">المتخصص الحصري للعلاج بالقرآن</span>
                           </div>
                         </div>
                       );

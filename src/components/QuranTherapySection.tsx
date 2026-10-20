@@ -362,7 +362,7 @@ export const QuranTherapySection: React.FC<QuranTherapySectionProps> = ({
         <div className="mt-14 p-8 rounded-3xl bg-gradient-to-r from-amber-950/60 via-stone-800 to-emerald-950/60 border border-amber-600/40 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-right">
             <h4 className="text-xl font-black text-white font-tajawal">
-              هل ترغب في جلسة رقية شرعية خاصة مع الشيخ؟
+              هل ترغب في جلسة رقية شرعية خاصة مع الشيخ عبد العلي؟
             </h4>
             <p className="text-stone-300 text-xs sm:text-sm">
               نوفر جلسات حضورية بالمركز أو عن بُعد عبر الاتصال المرئي مع المتابعة المستمرة لبرنامج الشفاء.
@@ -374,7 +374,7 @@ export const QuranTherapySection: React.FC<QuranTherapySectionProps> = ({
               onClick={onOpenBookingForRuqyah}
               className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm shadow-lg shadow-amber-950/50 transition-all hover:scale-102"
             >
-              حجز جلسة رقية شرعية
+              حجز جلسة مع الشيخ عبد العلي
             </button>
             <button
               onClick={onOpenInquiry}

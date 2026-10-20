@@ -160,78 +160,56 @@ export const Hero: React.FC<HeroProps> = ({
 
         </div>
 
-        {/* 3 Core Pillars Cards */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          {/* Pillar 1: Physiotherapy */}
-          <div 
-            onClick={() => onNavigateSection('physio')}
-            className="group cursor-pointer p-6 rounded-3xl bg-gradient-to-b from-stone-800/80 to-stone-900/90 border border-stone-700/60 hover:border-emerald-500/60 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-950/40 relative overflow-hidden"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-              <Activity className="w-7 h-7" />
-            </div>
-            <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-1">
-              الجانب العضوي والحركي
-            </span>
-            <h3 className="text-xl font-bold text-white mb-2 font-tajawal group-hover:text-emerald-300 transition-colors">
-              العلاج الطبيعي والتأهيل
-            </h3>
-            <p className="text-stone-300 text-sm leading-relaxed mb-4">
-              برامج تخصصية لعلاج آلام العمود الفقري، الانزلاق الغضروفي، خشونة الركبة، والكتف، مع تمارين علاجية موجهة ومخططات تأهيل منزلية.
-            </p>
-            <div className="flex items-center gap-2 text-xs font-bold text-emerald-400 group-hover:gap-3 transition-all">
-              <span>استكشف التمارين والحالات</span>
-              <ArrowLeft className="w-4 h-4" />
-            </div>
-          </div>
-
-          {/* Pillar 2: Quran Therapy */}
+        {/* بطاقة العلاج بالقرآن مع الشيخ عبد العلي */}
+        <div className="mt-16 max-w-3xl mx-auto">
           <div 
             onClick={() => onNavigateSection('quran')}
-            className="group cursor-pointer p-6 rounded-3xl bg-gradient-to-b from-stone-800/80 to-stone-900/90 border border-stone-700/60 hover:border-amber-500/60 transition-all duration-300 hover:shadow-xl hover:shadow-amber-950/40 relative overflow-hidden"
+            className="group cursor-pointer p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-stone-800/90 via-stone-900/95 to-amber-950/40 border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-950/50 relative overflow-hidden"
           >
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-              <BookOpen className="w-7 h-7" />
-            </div>
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block mb-1">
-              الشفاء القرآني والإيماني
-            </span>
-            <h3 className="text-xl font-bold text-white mb-2 font-tajawal group-hover:text-amber-300 transition-colors">
-              الرقية والتداوي بالقرآن
-            </h3>
-            <p className="text-stone-300 text-sm leading-relaxed mb-4">
-              آيات الشفاء الست، الرقية الشرعية الشاملة، مشغل صوتي تفاعلي، إرشادات التداوي بالماء وزيت الزيتون المقروء عليه، وأدعية السنة النبوية الصحيحة.
-            </p>
-            <div className="flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:gap-3 transition-all">
-              <span>استمع واقرأ آيات الشفاء</span>
-              <ArrowLeft className="w-4 h-4" />
+            {/* Ambient decorative glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-right">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-amber-500/15 text-amber-300 border border-amber-400/30 flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-amber-400" />
+              </div>
+
+              <div className="flex-1 space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 text-amber-300 border border-amber-500/30 text-xs font-bold">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  <span>الشفاء القرآني والرقية الشرعية المؤصلة</span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black text-white font-tajawal group-hover:text-amber-200 transition-colors">
+                  العلاج بالقرآن مع الشيخ عبد العلي
+                </h3>
+
+                <p className="text-stone-300 text-sm sm:text-base leading-relaxed font-tajawal">
+                  جلسات رقية شرعية مؤصلة بكتاب الله وسنة رسوله ﷺ، قراءة آيات الشفاء الست، تشخيص وتفريج الأعراض الروحية والنفسية، والتداوي بالماء وزيت الزيتون المقروء عليه تحت إشراف فضيلة الشيخ عبد العلي.
+                </p>
+
+                <div className="pt-3 flex flex-wrap items-center justify-center sm:justify-start gap-4">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenBooking();
+                    }}
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-stone-950 text-xs sm:text-sm font-bold shadow-md transition-all flex items-center gap-2"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    <span>حجز موعد مع الشيخ عبد العلي</span>
+                  </button>
+
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-amber-400 group-hover:text-amber-300 group-hover:gap-3 transition-all">
+                    <span>استكشف آيات الشفاء والرقية</span>
+                    <ArrowLeft className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Pillar 3: Herbal Search Engine */}
-          <div 
-            onClick={() => onNavigateSection('herbs')}
-            className="group cursor-pointer p-6 rounded-3xl bg-gradient-to-b from-stone-800/80 to-stone-900/90 border border-stone-700/60 hover:border-teal-500/60 transition-all duration-300 hover:shadow-xl hover:shadow-teal-950/40 relative overflow-hidden"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-400 border border-teal-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-              <Leaf className="w-7 h-7" />
-            </div>
-            <span className="text-xs font-bold text-teal-400 uppercase tracking-wider block mb-1">
-              صيدلية الطبيعة والطب النبوي
-            </span>
-            <h3 className="text-xl font-bold text-white mb-2 font-tajawal group-hover:text-teal-300 transition-colors">
-              محرك بحث الأعشاب ومنافعها
-            </h3>
-            <p className="text-stone-300 text-sm leading-relaxed mb-4">
-              دليل ذكي شامل للأعشاب الطبية، منافعها الصحية، جرعاتها الدقيقة، طرق التحضير، وموانع الاستعمال، مع مولد الوصفات العشبية التوليفية.
-            </p>
-            <div className="flex items-center gap-2 text-xs font-bold text-teal-400 group-hover:gap-3 transition-all">
-              <span>تصفح موسوعة الأعشاب</span>
-              <ArrowLeft className="w-4 h-4" />
-            </div>
-          </div>
-
         </div>
 
       </div>
